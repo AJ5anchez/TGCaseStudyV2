@@ -64,5 +64,5 @@ To create this small project, some of the references I consulted are:
 
 #Known Issues:
 - I used [`RestTemplate`](http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html) to automatically transfrom a GET response to a given object. It seems that the mappping components, underpinning `RestTemplate`, map some characters to their HTML
-code, which makes sometest cases to fail, even though the results are correct. I will try to fix this before
+code, which makes some test cases to fail, even though the results are correct. I will try to fix this before
 the discussion of this case study.
