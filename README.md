@@ -3,7 +3,7 @@
 Spring Boot code that implements a simple REST end-point that interacts with an external HTTP-based service
 and a (remote) MongoDB document database.
 # Building | Running | Testing
-Once you have cloned this repository, go to the root directory, and do any/all of the following, which assumes you have maven [2] installed in your system:
+Once you have cloned this repository, go to the root directory, and do any/all of the following, which assumes you have [Maven](http://maven.apache.org/) installed in your system:
 
 (1) `mvn spring-boot:run`
 
