@@ -63,6 +63,6 @@ To create this small project, some of the references I consulted are:
 - [https://spring.io/guides/gs/consuming-rest/](https://spring.io/guides/gs/consuming-rest/)
 
 #Known Issues:
-- I used [RestTemplate](http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html) to automatically transfrom a GET response to a given object. It seems that the mappping components, underpining RestTemplate, map some characters to their HTML
+- I used [RestTemplate](http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html) to automatically transfrom a GET response to a given object. It seems that the mappping components, underpinning RestTemplate, map some characters to their HTML
 code, which makes some cases to fail, even though the results are correct. I will try to fix this before
 the discussion of this case study.
