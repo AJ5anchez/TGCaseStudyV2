@@ -3,7 +3,7 @@
 Spring Boot code that implements a simple REST end-point that interacts with an external HTTP-based service
 and a (remote) MongoDB document database.
 # Building | Running | Testing
-Once you have cloned this repository, go to the PopulatePricesDB directory, and do any/all of the following, which assumes you have maven [2] installed in your system:
+Once you have cloned this repository, go to the root directory, and do any/all of the following, which assumes you have maven [2] installed in your system:
 
 (1) `mvn spring-boot:run`
 
@@ -12,44 +12,37 @@ listens to HTTP requests at port 8080.
 
 Currently, the only end-point exposed is:
 
-http://localhost:8080/products/{pid}
+`http://localhost:8080/products/{pid}`
 
-where {pid} refers to a product identifier. This end-point uses the pid to
+where `{pid}` refers to a product identifier. This end-point uses the pid to
 connect to a service, from which the name of the product with this id is
 retrieved, and then it is aggregated with the current price of this product,
 extracted from the MongoDB.
 
 For example, the following request:
 
-http://localhost:8080/products/15117729
+`http://localhost:8080/products/15117729`
 
 produces the following response, represented in JSON as follows:
 
-{
-  "pid": 15117729,
-  "name": "Apple® iPad Air 2 16GB Wi-Fi - Gold",
-  "currentPrice": {
-    "value": 35.99,
-    "currencyCode": "USD"
-  }
-}
+`{ "pid": 15117729,"name": "Apple® iPad Air 2 16GB Wi-Fi - Gold","currentPrice": { "value": 35.99,"currencyCode": "USD" } }`
 
-When the {pid} is not found in the service (no name found), or when it is not
+When the `{pid}` is not found in the service (no name found), or when it is not
 found in the price document database (no price found), the respective 
 exception is thrown, and clients can process these exceptions accordingly.
 
 For instance, Spring Boot provides, by default, an error page that is shown
 below for the following request sent from a browser:
 
-http://localhost:8080/products/15643793
+`http://localhost:8080/products/15643793`
 
 Whitelabel Error Page
 
 This application has no explicit mapping for /error, so you are seeing this as a fallback.
 
-Tue Mar 24 00:10:11 EDT 2015
-There was an unexpected error (type=Not Found, status=404).
-ERROR: Name not found for pid = 15643793
+`Tue Mar 24 00:10:11 EDT 2015`
+`There was an unexpected error (type=Not Found, status=404).`
+`ERROR: Name not found for pid = 15643793`
 
 (2) `mvn clean package`
 
@@ -70,6 +63,6 @@ To create this small project, some of the references I consulted are:
 - [https://spring.io/guides/gs/consuming-rest/](https://spring.io/guides/gs/consuming-rest/)
 
 #Known Issues:
-- I used [RestTemplate](http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html) to automatically transfrom a GET response to a given object. It seems that the mappping components underpining RestTemplate map some characters to their HTML
+- I used [RestTemplate](http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html) to automatically transfrom a GET response to a given object. It seems that the mappping components, underpining RestTemplate, map some characters to their HTML
 code, which makes some cases to fail, even though the results are correct. I will try to fix this before
 the discussion of this case study.
