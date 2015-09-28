@@ -1,4 +1,4 @@
-# PopulatePricesDB
+# TGCaseStudyV2
 # Summary
 Spring Boot code that implements a simple REST end-point that interacts with an external HTTP-based service
 and a (remote) MongoDB document database.
